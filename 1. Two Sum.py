@@ -11,9 +11,11 @@ class Solution:
         # Time = O(N)
         # Space = O(N)
 
-        # Optimized
-        # lib = {}
-        # for i, n in enumerate(nums):
-        #     if n in lib:
-        #         return [lib[n], i]
-        #     lib[target - n] = i
+        # Syntax Sugar
+        """
+        lib = {}
+        for i, n in enumerate(nums):
+            if n in lib:
+                return [lib[n], i]
+            lib[target - n] = i
+        """
