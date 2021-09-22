@@ -28,4 +28,37 @@ class Solution:
         dfs(root)
 
         # Time = O(N)
-        # Space = O(1) X -> Space = O(N) which is occupied by the recursion stack
+        # Space = O(N) which is occupied by the recursion stack
+
+        # optimized solution
+        """
+        Recursion is all about postponing decisions until something else is completed.
+        Use stack to postpone stuff. However, in order to get rid of the stack altogether:
+        -> come up with a greedy way that will be costlier in terms of time but will be space-efficient
+        """
+        if not root:
+            return None
+
+        curr = root
+        while curr:
+
+            # If the curr node has a left child
+            if curr.left:
+
+                # Find the rightmost curr node
+                rightmost = curr.left
+                while rightmost.right:
+                    rightmost = rightmost.right
+                    # rightmost = 6
+                    # curr.left = 2
+                    # curr = 5
+
+                # rewire the connections
+                rightmost.right = curr.right
+                curr.right = curr.left
+                curr.left = None
+
+            # move on to the right side of the tree
+            curr = curr.right
+
+        # Time = O(N) Space = O(1) boom!
