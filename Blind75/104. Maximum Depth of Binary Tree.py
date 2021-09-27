@@ -34,7 +34,7 @@ class Solution:
             stack.append([1, root])
 
         depth = 0
-        while stack != []:
+        while stack:
             curr_depth, root = stack.pop()
             if root:
                 depth = max(depth, curr_depth)
