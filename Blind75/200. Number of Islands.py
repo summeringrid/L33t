@@ -8,22 +8,28 @@ class Solution:
         rows, cols = len(grid), len(grid[0])
 
         def dfs(grid, r, c):
-            if r < 0 or r >= rows or c < 0 or c >= cols or grid[r][c] != 1:
+            if r < 0 or r >= rows or c < 0 or c >= cols or grid[r][c] != '1':
                 return
 
             else:
                 grid[r][c] = '-1'
-                dfs(grid, r + 1, c)
-                dfs(grid, r - 1, c)
                 dfs(grid, r, c + 1)
                 dfs(grid, r, c - 1)
+                dfs(grid, r + 1, c)
+                dfs(grid, r - 1, c)
 
         for r in range(rows):
             for c in range(cols):
                 if grid[r][c] == '1':
                     dfs(grid, r, c)
-                    island += 1
+                    islands += 1
         return islands
+        # ※ Note: check the grid value: String type
 
 
 
+        # BFS
+
+
+
+        # Union Find
