@@ -1,7 +1,7 @@
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        # dfs
-
+        # DFS
+        # Time = O(n^2), Space = (n)
         if not isConnected:
             return 0
 
@@ -35,4 +35,11 @@ class Solution:
                 dfs(i)
         return province
 
-    # Time = O(n^2), Space = (n)
+    # BFS
+    # Time = O(n^2), Space = O(n)
+
+    # Union Find
+    # Time = O(n^3), Space = O(n)
+
+
+
