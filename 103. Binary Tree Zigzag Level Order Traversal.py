@@ -4,35 +4,37 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-from collections import deque
-
-
 class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        # implement a bfs
+    def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
 
-        # corner case:
         if not root:
             return []
 
         levels = []
         queue = deque([root])
-        level = 0
-        while queue:
-            levels.append([])
-            level_length = len(queue)
+        reverse = False
 
-            for i in range(level_length):
+        while queue:
+            level_len = len(queue)
+            temp = [0] * level_len
+
+            for i in range(level_len):
                 currNode = queue.popleft()
-                levels[level].append(currNode.val)
+
+                if not reverse:
+                    temp[i] = currNode.val
+                else:
+                    temp[level_len - i - 1] = currNode.val
 
                 if currNode.left:
                     queue.append(currNode.left)
+
                 if currNode.right:
                     queue.append(currNode.right)
 
-            level += 1
+            reverse = not reverse
+            levels.append(temp)
 
         return levels
 
-        # Time = O(n), Space = O(n)
+    # Time = O(n), Space = O(n)
