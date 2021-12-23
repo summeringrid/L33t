@@ -1,16 +1,25 @@
-import heapq
+a = '1'
+b = '9'
+n = max(len(a), len(b))
+a, b = a.zfill(n), b.zfill(n)
 
-print('hello world')
+# print(n)
+# print(a)
+# print(b)
 
-li = [4,5,7,9,1,2,6]
+txt = "50"
+x = txt.zfill(10)
+print(x)
 
-heapq.heapify(li)
+a = "hello"
+b = "welcome to the jungle"
+c = "10.000"
 
-print('after heapify the list: ', list(li))
+print(a.zfill(10))
+print(b.zfill(10))
+print(c.zfill(10))
 
-heapq.heappush(li, 3)
-print('after pushing, the list', list(li))
-
-next_one = heapq.heappop((li))
-print('the pop one:', next_one)
-print('after popping ,the list', list(li))
+print('===== Shift Operators')
+print(2>>5)     # 0     # shift to left by 5 bits
+print(2<<5)     # 64    # shift to right by 5 bits
+print(1000>>2)  # 250
