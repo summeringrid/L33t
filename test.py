@@ -19,7 +19,7 @@ print(a.zfill(10))
 print(b.zfill(10))
 print(c.zfill(10))
 
-print('===== Shift Operators')
+print('===== Bit Shift Operators')
 print(2>>5)     # 0     # shift to left by 5 bits
 print(2<<5)     # 64    # shift to right by 5 bits
 print(1000>>2)  # 250
