@@ -10,7 +10,7 @@ class Solution:
         stack = []
         cur = root
 
-        while cur and stack:
+        while cur or stack:
             while cur:
                 stack.append(cur)
                 cur = cur.left
@@ -33,5 +33,8 @@ class Solution:
     Expected: 1
     
     o(╥﹏╥)o Why~~
+    
+    [update]
+    Found the bug, it should be OR not AND when check the cur & stack on line 13
     
     """
