@@ -39,13 +39,13 @@ class Codec:
 
         def dfs():
             if vals[self.i] == 'N':
-                sefl.i += 1
+                self.i += 1
                 return None
             node = TreeNode(int(vals[self.i]))
             self.i += 1
 
             node.left = dfs()  # no need to increment the index because it will be done in the dfs
-            node.right(dfs)
+            node.right = dfs()
             return node
 
         return dfs()

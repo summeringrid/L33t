@@ -8,22 +8,22 @@ class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         if not subRoot:
             return True
-        if not root and subRoot:
+        # if not root and subRoot:
+        if not root:
             return False
 
         if self.isSameTree(root, subRoot):
             return True
-
-        return (self.isSubtree(root.left, subRoot.left) or
-                self.isSubtree(root.right, subRoot.right))
+        return (self.isSubtree(root.left, subRoot) or
+                self.isSubtree(root.right, subRoot))
 
     def isSameTree(self, s, t):
         if not s and not t:
             return True
 
         if s and t and s.val == t.val:
-            return (self.isSameTree(self, s.left, t.left) and
-                    self.isSameTree(self, s.right, t.right))
+            return (self.isSameTree(s.left, t.left) and
+                    self.isSameTree(s.right, t.right))
         return False
 
     # Time = O(S*T), S is node num of the Tree root, T is node num of the Tree subRoot
