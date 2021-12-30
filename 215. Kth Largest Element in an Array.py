@@ -5,6 +5,10 @@ class Solution:
         nums.reverse()
         return nums[k - 1]
 
+        # Neat code:
+        nums.sort()
+        return nums[len(nums) - k]
+
         # Time = O(NlogN), N = len(nums)
 
         # Approach 2: Heap
@@ -15,7 +19,23 @@ class Solution:
         # Time = k * logN
 
         # Approach 3: Quicksort
+        k = len(nums) - k
 
+        def quickSelect(l, r):
+            pivot, ptr = nums[r], l
+            for i in range(l, r):
+                if nums[i] <= pivot:
+                    nums[i], nums[ptr] = nums[ptr], nums[i]
+                    ptr += 1
+            nums[ptr], nums[r] = nums[r], nums[ptr]
+
+            if ptr > k:     return quickSelect(l, ptr - 1)
+            if ptr < k:
+                return quickSelect(ptr + 1, r)
+            else:
+                return nums[ptr]
+
+        return quickSelect(0, len(nums) - 1)
 
         # Time = O(n)
         # n + n/2 + n/4 + n/8 + ..... = 2n

@@ -1,5 +1,5 @@
 class Solution:
-    def uniqueOccurrences(self, arr: List[int]) -> bool:
+    def uniqueOccurrences(self, arr) -> bool:
         occur = dict()
 
         for num in arr:
@@ -10,11 +10,17 @@ class Solution:
 
         hashSet = set()
 
-        #         for val in occur.values:
-        #             hashSet.add(val)
         for key in occur:
             hashSet.add(occur[key])
 
         return len(hashSet) == len(occur)
 
+
     # return len(set([arr.count(x) for x in set(arr)])) == len(set(arr))
+    # ===
+
+        arraySet = set(arr)
+        arrayCount = set()
+        for x in arraySet:
+            arrayCount.add(arr.count(x))
+        return len(arrayCount) == len(arraySet)
