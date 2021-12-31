@@ -14,3 +14,18 @@ class Solution:
         return maxProfit
         # Time = O(N)
         # Space = O(1)
+
+
+        # Approach II
+        buy = princes[0]
+        profit = 0
+
+        for price in prices[1:]:
+            buy = min(buy, price)
+            sell = price
+            profit = max(profit, sell - buy)
+        return profit
+
+        # Time = O(n*k), n = len(prices), k = transit num (here is 1)
+
+        # 隔板法（python will get a TLE
