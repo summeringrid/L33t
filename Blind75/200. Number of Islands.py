@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         # DFS
@@ -56,4 +59,50 @@ class Solution:
         return 0 <= x < n and 0 <= y < m and grid[x][y] == '1'
 
 
-        # Union Find
+        # UnionFind------------------------------------------------------------
+
+        if not grid or not grid[0]:
+            return 0
+
+        self.parent = {}
+        self.size = 0
+
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == "1":
+                    self.parent[(i, j)] = (i, j)
+                    self.size += 1
+
+        for x in range(len(grid)):
+            for y in range(len(grid[0])):
+                if grid[x][y] == "1":
+                    for delta_x, delta_y in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+                        x_ = x + delta_x
+                        y_ = y + delta_y
+
+                        if self.is_inbound(grid, x_, y_) and grid[x_][y_] == "1":
+                            self.union((x, y), (x_, y_))
+
+        return self.size
+
+    def union(self, a, b):
+        root_a = self.find(a)
+        root_b = self.find(b)
+
+        if root_a != root_b:
+            self.parent[root_a] = root_b
+            self.size -= 1
+
+    def find(self, point):
+        path = []
+        while point != self.parent[point]:
+            path.append(point)
+            point = self.parent[point]
+
+        for p in path:
+            self.parent[p] = point
+
+        return point
+
+    def is_inbound(self, grid, x_, y_):
+        return 0 <= x_ < len(grid) and 0 <= y_ < len(grid[0])
