@@ -52,7 +52,7 @@ class Solution:
                 if neighbor not in distance:
                     queue.append(neighbor)
                     unvisited_nodes.add(neighbor)
-            return unvisited_nodes
+        return unvisited_nodes
 
 
 

@@ -3,7 +3,7 @@ from collections import deque
 
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        # DFS
+        # DFS =========================================================================
         # Time = O(M*N), M is rows and N is cols
         # Space = O(M*N)
 
@@ -29,7 +29,7 @@ class Solution:
         return islands
         # Note: check the grid value: String type; check out of boundary before checking the val
 
-        # BFS
+        # BFS =========================================================================
         if not grid or not grid[0]:
             return 0
 
@@ -59,7 +59,7 @@ class Solution:
         return 0 <= x < n and 0 <= y < m and grid[x][y] == '1'
 
 
-        # UnionFind------------------------------------------------------------
+        # UnionFind =========================================================================
 
         if not grid or not grid[0]:
             return 0
