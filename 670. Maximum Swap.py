@@ -13,7 +13,7 @@
 
 class Solution:
     def maximumSwap(self, num: int) -> int:
-        num_list = list(str(num))  # Hint1: cast num into str before into list!!!
+        num_list = list(str(num))  # Hint1: cast num into str before into list!!! (because integer is not iterable)
         n = len(num_list)
 
         for i in range(n - 1):  # Hint2: out of boundary
@@ -36,4 +36,4 @@ class Solution:
 
         return int(''.join(num_list))
 
-        # Time = O(N), N = len(num)
+        # Time, Space = O(N), N = digits of the given num
