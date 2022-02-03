@@ -14,3 +14,7 @@ class Solution:
                 res.append(n)
                 if len(res) == k:
                     return res
+
+
+        # Time = O(N), Space = O(n)
+        # (worst case: O(N + len(nums)*k))
