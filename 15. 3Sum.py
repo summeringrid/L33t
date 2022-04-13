@@ -30,6 +30,8 @@ class Solution:
                 #     while nums[l] == nums[l - 1] and l < r:
                 #         l += 1
 
-        return res
+                # ANSWER: because we already guaranteed the nums[l] changes, then the combination will be unique
 
+        return res
+        
         # Time = O(n^2), Space = O(n)
