@@ -33,4 +33,4 @@ class Solution:
 
             index += step
         return ''.join(L)
-    
+    d
