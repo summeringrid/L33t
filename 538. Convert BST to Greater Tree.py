@@ -24,4 +24,3 @@ class Solution:
         # Time = O(n)
         # Space = O(h), h = height of the tree
         # if the tree is balanced, the height = log(n)
-    
